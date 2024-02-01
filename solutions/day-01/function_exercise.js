@@ -6,10 +6,6 @@ function sumAllNums() {
     return sum
   }
   
-  console.log(sumAllNums(1, 2, 3, 4)) // 10
-  console.log(sumAllNums(10, 20, 13, 40, 10))  // 93
-  console.log(sumAllNums(15, 20, 30, 25, 10, 33, 40))  // 173
-
   function fullName(firstName, lastName){
     return firstName + ' ' + lastName;
   }
@@ -104,6 +100,56 @@ function sumAllNums() {
     }
   }
 
-  let c = factorOfC(5);
-  let x = c.pop()
-  console.log(x) 
+  function showDateTime(){
+    const date = new Date();
+    console.log(date.getDate(),'/',date.getMonth(),'/',date.getFullYear())
+  }
+
+  function sumNumbers(){
+    let sum = 0;
+    for(let i = 0; i < arguments.length; i++){
+      sum += arguments[i];
+    }
+    return sum;
+  }
+
+  function userIdGenerator(length){
+    const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+    let result = '';
+    for(let i = 0; i < length; i++){
+      result += characters.charAt(Math.floor(Math.random() * characters.length));
+    }
+
+    return result;
+  }
+  
+  function generateColor(colorType, number=1){
+    let arr = []
+    if(colorType.toLowerCase() === 'rgb'){
+      for(let i = 0; i < number; i++){
+        let r = Math.floor(Math.random() * 256);
+        let g = Math.floor(Math.random() * 256);
+        let b = Math.floor(Math.random() * 256);
+
+        let rgb = "rgb("+r+","+g+","+b+")";
+        arr.push(rgb)
+      } 
+    }else{
+      for(let i = 0; i < number; i++){
+        let randomColor = "#" + Math.floor(Math.random()* 0xFFFFFF).toString(16);
+        arr.push(randomColor);
+      }
+    }
+
+    return arr;
+  }
+
+  function factorial(number){
+    if(number <= 1){
+      return number
+    }else{
+      return number*factorial(number-1);
+    }
+  }
+
+  console.log(factorial(5))
